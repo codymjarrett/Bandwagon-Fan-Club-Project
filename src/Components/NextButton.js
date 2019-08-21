@@ -27,10 +27,10 @@ const Button = styled.button`
   }
 `;
 
-const NextButton = () => {
+const NextButton = ({handleNextButton}) => {
   return (
     <>
-      <Button />
+      <Button onClick={handleNextButton}/>
     </>
   );
 };

@@ -9,16 +9,14 @@ import Data from "./Data";
 import Title from "./Title";
 import Growth from "./Growth";
 
-const Base = styled.div.attrs(props => ({
-  className: "current"
-}))`
+const Base = styled.div`
   width: 351px;
   height: 425px;
   box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   background-color: ${props => props.theme.$White};
   margin: 2rem auto;
-  position: relative;
+  position: absolute;
   opacity: 0; 
   display: inline-block;
   left: 50%;
@@ -29,12 +27,14 @@ const Base = styled.div.attrs(props => ({
     isActive &&
     `
   opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
   `}
 `;
 
 const Card = ({ current, title }) => {
   return (
-    <Base isActive={current}>
+    <Base isActive={current} className={`card ${current ? 'current' : ""}`}>
       <CardContainer className="card__container">
         <Action />
         <Helper />

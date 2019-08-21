@@ -9,6 +9,7 @@ const Button = styled.button`
   position: absolute;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  left: 0;
 
   
   top: 50%;
@@ -24,13 +25,12 @@ const Button = styled.button`
     transform: translate(-60%, -50%) rotate(-90deg);
 `;
 
-const PrevButton = () => {
-
-    return(
-        <>
-        <Button></Button>
-        </>
-    )
+const PrevButton = ({ handlePrevButton }) => {
+  return (
+    <>
+      <Button onClick={handlePrevButton} />
+    </>
+  );
 };
 
 export default PrevButton;
