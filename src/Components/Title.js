@@ -25,11 +25,11 @@ const VisuallyHidden = styled.span`
   width: 1px;
   height: 1px;
 `;
-const Title = () => {
+const Title = ({ title }) => {
   return (
     <TitleWrapper>
-      <TitleText>Total Followers</TitleText>
-      <VisuallyHidden>Information about this (make dynamic)</VisuallyHidden>
+      <TitleText>{title}</TitleText>
+      <VisuallyHidden>{`Information about ${title}`}</VisuallyHidden>
     </TitleWrapper>
   );
 };

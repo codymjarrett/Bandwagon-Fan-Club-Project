@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-import Base from "./Components/Base";
-import CardContainer from "./Components/CardContainer";
+import Card from "./Components/Card";
 import NextButton from "./Components/NextButton";
 import PrevButton from "./Components/PrevButton";
 
@@ -22,19 +21,35 @@ const Fonts = {
 };
 
 const SiteWrapper = styled.div`
-  width: 960px;
+  ${"" /* width: 960px; */}
   margin: auto;
   position: relative;
 `;
 
+const WidgetWrapper = styled.div``;
 function App() {
+  const [current, setCurrent] = useState("current");
+  const [notCurrent, setNotCurrent] = useState("notCurrent");
+
+  const runPrevButton = () => {
+    
+  }
+  
+  const runPrevButton = () => {
+
+  }
+
   return (
     <ThemeProvider theme={colorPalette}>
       <ThemeProvider theme={Fonts}>
-        <SiteWrapper>
-          <Base>
-            <CardContainer />
-          </Base>
+        <SiteWrapper className="widget-slider">
+          <WidgetWrapper>
+            <Card title={'Total Fans'} current={current} />
+            <Card title={'Total Sales'} notCurrent={notCurrent} />
+            <Card title={'Total Events'} notCurrent={notCurrent} />
+            <Card title={'Active Tickets'} notCurrent={notCurrent} />
+          </WidgetWrapper>
+
           <PrevButton />
           <NextButton />
         </SiteWrapper>
