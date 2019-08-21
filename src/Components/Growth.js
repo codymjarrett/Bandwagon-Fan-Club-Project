@@ -6,7 +6,7 @@ const GrowthWrapper = styled.div`
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  font-family: Futura;
+  font-family: ${props => props.theme.$Futura};
   font-weight: bold;
   font-size: 1.1rem;
 `;

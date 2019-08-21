@@ -16,6 +16,11 @@ const colorPalette = {
   $Green: "#24DA24"
 };
 
+const Fonts = {
+  $Futura: "Futura",
+  $SourceSansPro: "Source Sans Pro"
+};
+
 const SiteWrapper = styled.div`
   width: 960px;
   margin: auto;
@@ -25,13 +30,15 @@ const SiteWrapper = styled.div`
 function App() {
   return (
     <ThemeProvider theme={colorPalette}>
-      <SiteWrapper>
-        <Base>
-          <CardContainer />
-        </Base>
-        <PrevButton />
-        <NextButton />
-      </SiteWrapper>
+      <ThemeProvider theme={Fonts}>
+        <SiteWrapper>
+          <Base>
+            <CardContainer />
+          </Base>
+          <PrevButton />
+          <NextButton />
+        </SiteWrapper>
+      </ThemeProvider>
     </ThemeProvider>
   );
 }

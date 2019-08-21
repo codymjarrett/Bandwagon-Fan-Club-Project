@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  width: 8rem;
-  height: 8rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 100%;
   background-color: #00a6ff;
   position: absolute;
@@ -13,12 +13,24 @@ const Button = styled.button`
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+
+  ::after {
+    content: "";
+    border-left: 1.5rem solid transparent;
+    border-right: 1.5rem solid transparent;
+    border-bottom: 2.5rem solid ${props => props.theme.$White};
+    position: absolute;
+    left: 50%;
+    transform: translate(-40%, -50%) rotate(90deg);
+
+   
+  }
 `;
 
 const NextButton = () => {
   return (
     <>
-      <Button></Button>
+      <Button />
     </>
   );
 };

@@ -7,7 +7,7 @@ const DataWrapper = styled.div`
 
 const DataText = styled.h1`
   font-size: 4rem;
-  font-family: Futura;
+  font-family: ${props => props.theme.$Futura};
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

@@ -10,7 +10,7 @@ const TitleWrapper = styled.div`
 `;
 
 const TitleText = styled.h2`
-  font-family: Source Sans Pro;
+  font-family: ${props => props.theme.$SourceSansPro};
   font-weight: 600;
   font-size: 1rem;
   color: ${props => props.theme.$Grey};
