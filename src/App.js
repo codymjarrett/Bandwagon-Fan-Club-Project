@@ -21,71 +21,85 @@ const Fonts = {
 };
 
 const SiteWrapper = styled.div`
-  width: 960px; 
+  width: 960px;
   margin: auto;
   position: relative;
 `;
 
 const WidgetWrapper = styled.div`
-position: relative;
-height: 500px;
+  position: relative;
+  height: 500px;
 `;
 function App() {
-  const [current, setCurrent] = useState(true);
+  const [isCurrent, setIsCurrent] = useState(true);
   let cardsRef = useRef();
 
   // const [notCurrent, setNotCurrent] = useState("notCurrent");
 
   const runPrevButton = () => {
-    console.log(cardsRef.current.children)
+    console.log(cardsRef.current.children);
+    checkIfElementIsCurrent();
+    // setIsCurrent(!isCurrent);
 
-    // grab all the cards 
     // get card with class name of current
-    const current = document.querySelector('.current');
+    const current = document.querySelector(".current");
     // remove that class name
-    current.classList.remove('current');
+    current.classList.remove("current");
     // check for next card
-    if(current.previousElementSibling){
+    if (current.previousElementSibling) {
       // add current class to next sibling
-      current.previousElementSibling.classList.add('current')
+      current.previousElementSibling.classList.add("current");
     } else {
       // if at the last card, add current class to the first card to start over
-      cardsRef.current.children[cardsRef.current.children.length - 1 ].classList.add('current');
+      cardsRef.current.children[
+        cardsRef.current.children.length - 1
+      ].classList.add("current");
     }
-  }
+  };
+
+  const checkIfElementIsCurrent = () => {
+    // returns an htmlCollection
+    const listOfCardsHTML = cardsRef.current.children;
+    // converts htmlCollection into an array
+    const arrayOfCards = [...listOfCardsHTML];
+    // filters the element with the current class
+    const cardWithCurrentClassName = arrayOfCards.filter(card =>
+      card.classList.contains("current")
+    );
+    console.log(cardWithCurrentClassName);
+  };
 
   const runNextButton = () => {
-    console.log(cardsRef.current.children)
+    console.log(cardsRef.current.children);
+    // setIsCurrent(!isCurrent);
 
-    // grab all the cards 
     // get card with class name of current
-    const current = document.querySelector('.current');
+    const current = document.querySelector(".current");
     // remove that class name
-    current.classList.remove('current');
+    current.classList.remove("current");
     // check for next card
-    if(current.nextElementSibling){
+    if (current.nextElementSibling) {
       // add current class to next sibling
-      current.nextElementSibling.classList.add('current')
+      current.nextElementSibling.classList.add("current");
     } else {
       // if at the last card, add current class to the first card to start over
-      cardsRef.current.children[0].classList.add('current');
+      cardsRef.current.children[0].classList.add("current");
     }
-
-  }
+  };
 
   return (
     <ThemeProvider theme={colorPalette}>
       <ThemeProvider theme={Fonts}>
-        <SiteWrapper >
+        <SiteWrapper>
           <WidgetWrapper className="widget-slider" ref={cardsRef}>
-            <Card title={'Total Fans'} current={current} />
-            <Card title={'Total Sales'} current={false} />
-            <Card title={'Total Events'} current={false} />
-            <Card title={'Active Tickets'} current={false} />
+            <Card title={"Total Fans"} isCurrent={isCurrent} />
+            <Card title={"Total Sales"} />
+            <Card title={"Total Events"} />
+            <Card title={"Active Tickets"} />
           </WidgetWrapper>
 
-          <PrevButton handlePrevButton={runPrevButton}/>
-          <NextButton handleNextButton={runNextButton}/>
+          <PrevButton handlePrevButton={runPrevButton} />
+          <NextButton handleNextButton={runNextButton} />
         </SiteWrapper>
       </ThemeProvider>
     </ThemeProvider>

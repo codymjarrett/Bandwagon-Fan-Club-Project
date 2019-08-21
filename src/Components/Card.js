@@ -32,9 +32,9 @@ const Base = styled.div`
   `}
 `;
 
-const Card = ({ current, title }) => {
+const Card = ({ isCurrent, title }) => {
   return (
-    <Base isActive={current} className={`card ${current ? 'current' : ""}`}>
+    <Base isActive={isCurrent} className={`card ${isCurrent ? 'current' : ""}`}>
       <CardContainer className="card__container">
         <Action />
         <Helper />
