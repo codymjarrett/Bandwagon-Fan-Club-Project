@@ -16,7 +16,7 @@ const FanSVG = () => {
       focusable="false"
       data-prefix="fas"
       data-icon="users"
-      class="svg-inline--fa fa-users fa-w-20 icon"
+      className="svg-inline--fa fa-users fa-w-20 icon"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 640 512"

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import FanSVG from "./SVG/fans";
 
 const IconWrapper = styled.div`
   position: relative;
@@ -17,11 +16,30 @@ const IconBackground = styled.div`
   height: 5rem;
 `;
 
-const Icon = () => {
+const SVG = styled.svg`
+  width: 3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: ${props => props.theme.$Primary};
+`;
+
+const Icon = ({ svg }) => {
   return (
-    // <IconWrapper class="icon__container">
-    <IconBackground class="icon__container">
-      <FanSVG />
+    <IconBackground className="icon__container">
+      <SVG
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fas"
+        data-icon="users"
+        className="svg-inline--fa fa-users fa-w-20 icon"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+      >
+        <path d={svg} />
+      </SVG>
     </IconBackground>
     // </IconWrapper>
   );

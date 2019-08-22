@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import CardContainer from "./CardContainer";
@@ -32,16 +32,16 @@ const Base = styled.div`
   `}
 `;
 
-const Card = ({ isCurrent, title }) => {
+const Card = ({ title, svg, data, growthRate, isCurrent }) => {
   return (
     <Base isActive={isCurrent} className={`card ${isCurrent ? 'current' : ""}`}>
       <CardContainer className="card__container">
         <Action />
         <Helper />
-        <Icon />
-        <Data />
+        <Icon svg={svg}/>
+        <Data data={data}/>
         <Title title={title}/>
-        <Growth />
+        <Growth growthRate={growthRate} />
       </CardContainer>
     </Base>
   );

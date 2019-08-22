@@ -34,12 +34,12 @@ const GrowthText = styled.span`
   display: block;
 `;
 
-const Growth = () => {
+const Growth = ({ growthRate }) => {
   return (
     <GrowthWrapper>
       <GrowthElementsWrapper>
         <GrowthIcon />
-        <GrowthText>116.7%</GrowthText>
+        <GrowthText>{growthRate}</GrowthText>
       </GrowthElementsWrapper>
     </GrowthWrapper>
   );
