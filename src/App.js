@@ -64,18 +64,18 @@ function App() {
   });
 
   const runPrevButton = () => {
-    //  get index of the current active card
+    //  get the zero-th index of the activeCard object - which should always be the index of the current card
     const index = data.activeCard.id - 1;
     // calculate the length of the cards array
     const length = data.cards.length - 1;
-    // set the active card variable
+    // set the activeCard variable
     let activeCard;
 
-    // if index is 0 (at the end of the array)
+    // if index is 0 (at the beginning of the array) - which is true at the start of the app 
     index === 0
-      ? // active card = last card in the array
+      ? // activeCard = last card in the array
         (activeCard = data.cards[length])
-      : //  else active card = previous card in the array
+      : //  else activeCard = previous card in the array
         (activeCard = data.cards[index - 1]);
 
     // set state based on the conditional
@@ -85,16 +85,15 @@ function App() {
   };
 
   const runNextButton = () => {
-    //  get index of the current active card
-
+    //  get the zero-th index of the activeCard object - which should always be the index of the current card
     const index = data.activeCard.id;
-    // set the active card variable to the card in data with the index of the active card
-    // (the next card after the active in the data array)
+    // set the activeCard variable to the card in data with the index of the activeCard
+    // (the next card after the activeCard in the data array)
     let activeCard = data.cards[index];
 
-    // if active card is essentially at the last index (returns undefined)
+    // if activeCard is the last card in the array the next index will return undefined
     if (activeCard === undefined) {
-      // then active card is the card in the first index
+      // then set activeCard to the first index of the array
       activeCard = data.cards[0];
     }
     // set state based on the conditional
