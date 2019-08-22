@@ -38,7 +38,7 @@ const Growth = ({ growthRate }) => {
   return (
     <GrowthWrapper>
       <GrowthElementsWrapper>
-        <GrowthIcon />
+        {growthRate && <GrowthIcon />}
         <GrowthText>{growthRate}</GrowthText>
       </GrowthElementsWrapper>
     </GrowthWrapper>

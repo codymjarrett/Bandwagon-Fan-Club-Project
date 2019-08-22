@@ -15,12 +15,13 @@ const Base = styled.div`
   box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   background-color: ${props => props.theme.$White};
-  margin: 2rem auto;
-  position: absolute;
+  position: relative;
+  ${'' /* margin: 2rem auto; */}
+  ${'' /* position: absolute; */}
   ${'' /* opacity: 1;  */}
   ${'' /* display: inline-block; */}
-  left: 50%;
-  transform: translateX(-50%);
+  ${'' /* left: 50%;
+  transform: translateX(-50%); */}
 }
 
   ${'' /* ${({ isActive }) =>
