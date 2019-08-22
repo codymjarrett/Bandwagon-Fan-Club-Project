@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const IconWrapper = styled.div`
-  position: relative;
-`;
+
 
 const IconBackground = styled.div`
   background: ${props => props.theme.$PrimaryVariant};
@@ -41,7 +39,6 @@ const Icon = ({ svg }) => {
         <path d={svg} />
       </SVG>
     </IconBackground>
-    // </IconWrapper>
   );
 };
 

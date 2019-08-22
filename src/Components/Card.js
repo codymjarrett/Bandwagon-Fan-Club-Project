@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// import CardContainer from "./CardContainer";
 import Action from "./Action";
 import Helper from "./Helper";
 import Icon from "./Icon";
@@ -16,32 +15,19 @@ const Base = styled.div`
   border-radius: 5px;
   background-color: ${props => props.theme.$White};
   position: relative;
-  ${'' /* margin: 2rem auto; */}
-  ${'' /* position: absolute; */}
-  ${'' /* opacity: 1;  */}
-  ${'' /* display: inline-block; */}
-  ${'' /* left: 50%;
-  transform: translateX(-50%); */}
-}
-
-  ${'' /* ${({ isActive }) =>
-    isActive &&
-    `
-  opacity: 1;
   left: 50%;
   transform: translateX(-50%);
-  `} */}
 `;
 
 const Card = ({ title, svg, data, growthRate }) => {
   return (
     <Base>
-        <Action />
-        <Helper />
-        <Icon svg={svg}/>
-        <Data data={data}/>
-        <Title title={title}/>
-        <Growth growthRate={growthRate} />
+      <Action />
+      <Helper />
+      <Icon svg={svg} />
+      <Data data={data} />
+      <Title title={title} />
+      <Growth growthRate={growthRate} />
     </Base>
   );
 };
