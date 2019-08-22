@@ -32,11 +32,8 @@ const WidgetWrapper = styled.div`
   height: 500px;
 `;
 function App() {
-  // const [isCurrent, setIsCurrent] = useState(true);
   const [activeCard, setActiveCard] = useState([]);
   const [currentCardIdx, setCurrentCardIdx] = useState(0);
-  const [isCardCurrent, setIsCardCurrent] = useState(false)
-
   const [data, setData] = useState([
     {
       id: 1,
@@ -45,7 +42,7 @@ function App() {
       title: "Total Fans",
       data: "21.2k",
       growthRate: "112.71%",
-      isCurrent: !isCardCurrent
+      // isCurrent: !isCardCurrent
     },
     {
       id: 2,
@@ -54,7 +51,7 @@ function App() {
       title: "Total Events",
       data: "15",
       growthRate: null,
-      isCurrent: isCardCurrent
+      // isCurrent: isCardCurrent
     },
     {
       id: 3,
@@ -63,7 +60,7 @@ function App() {
       title: "Total Sales",
       data: "38.6k",
       growthRate: "34.47%",
-      isCurrent: isCardCurrent
+      // isCurrent: isCardCurrent
     },
     {
       id: 4,
@@ -72,7 +69,7 @@ function App() {
       title: "Active Tickets",
       data: "958",
       growthRate: "23.59%",
-      isCurrent: isCardCurrent
+      // isCurrent: isCardCurrent
     }
   ]);
 
@@ -86,7 +83,10 @@ function App() {
     // const something = data.slice(0, 1);
     // console.log(something);
     // setActiveCard(something);
-    setActiveCard(data)
+    // setActiveCard(data)
+
+
+    console.log(data)
   }, []);
 
   // let cardsRef = useRef();
@@ -101,11 +101,7 @@ function App() {
    const index = resetToVeryBack ? data.length - 1 : currentCardIdx - 1;
 
 
-    activeCard.map((item, idx) => {
-      console.log(this)
-      // const a = this.findIndex(i => i.isCurrent);
-      // console.log(a)
-    })
+    
 
     
 
@@ -166,14 +162,13 @@ function App() {
       <ThemeProvider theme={Fonts}>
         <SiteWrapper>
           <WidgetWrapper className="widget-slider">
-            {activeCard.map(({ id, title, svg, data, growthRate, isCurrent }) => (
+            {data.map(({ id, title, svg, data, growthRate }) => (
               <Card
                 key={id}
                 title={title}
                 svg={svg}
                 data={data}
                 growthRate={growthRate}
-                isCurrent={isCurrent}
               />
             ))}
           </WidgetWrapper>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import CardContainer from "./CardContainer";
+// import CardContainer from "./CardContainer";
 import Action from "./Action";
 import Helper from "./Helper";
 import Icon from "./Icon";
@@ -17,32 +17,30 @@ const Base = styled.div`
   background-color: ${props => props.theme.$White};
   margin: 2rem auto;
   position: absolute;
-  opacity: 0; 
-  display: inline-block;
+  ${'' /* opacity: 1;  */}
+  ${'' /* display: inline-block; */}
   left: 50%;
   transform: translateX(-50%);
 }
 
-  ${({ isActive }) =>
+  ${'' /* ${({ isActive }) =>
     isActive &&
     `
   opacity: 1;
   left: 50%;
   transform: translateX(-50%);
-  `}
+  `} */}
 `;
 
-const Card = ({ title, svg, data, growthRate, isCurrent }) => {
+const Card = ({ title, svg, data, growthRate }) => {
   return (
-    <Base isActive={isCurrent} className={`card ${isCurrent ? 'current' : ""}`}>
-      <CardContainer className="card__container">
+    <Base>
         <Action />
         <Helper />
         <Icon svg={svg}/>
         <Data data={data}/>
         <Title title={title}/>
         <Growth growthRate={growthRate} />
-      </CardContainer>
     </Base>
   );
 };
