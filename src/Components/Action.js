@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const ActionButtonWrapper = styled.div`
   position: relative;
+
 `;
 
 const ActionButton = styled.button`
@@ -13,8 +14,10 @@ const ActionButton = styled.button`
   width: 5rem;
   height: 5rem;
   border-radius: 100%;
-  background-color: ${props => props.theme.$Blue};
+  background-color: ${props => props.theme.$BFCBlue};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
 
   ::after {
     content: "";

@@ -6,13 +6,15 @@ const Button = styled.button`
   height: 5rem;
   border-radius: 100%;
   background-color: #00a6ff;
-  position: absolute;
+  position: relative;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+
+  &:hover {
+    background: linear-gradient(to right, ${props => props.theme.$AuraLightBlue},${props => props.theme.$AuraBlue});
+  }
 
   ::after {
     content: "";

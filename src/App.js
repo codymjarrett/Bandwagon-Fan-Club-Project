@@ -5,19 +5,19 @@ import Card from "./Components/Card";
 import NextButton from "./Components/NextButton";
 import PrevButton from "./Components/PrevButton";
 
-import { colorPalette, Fonts } from "./Theme/Theme"
+import { colorPalette, Fonts } from "./Theme/Theme";
 
 const SiteWrapper = styled.div`
   width: 960px;
-  margin: auto;
+  margin: 4rem auto;
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;
 
-const WidgetWrapper = styled.div`
-  position: relative;
-  height: 500px;
-`;
 function App() {
+  const [rightBtnScale, setRightBtnScale] = useState(false);
   const [data, setData] = useState({
     activeCard: {
       id: 1,
@@ -71,7 +71,7 @@ function App() {
     // set the activeCard variable
     let activeCard;
 
-    // if index is 0 (at the beginning of the array) - which is true at the start of the app 
+    // if index is 0 (at the beginning of the array) - which is true at the start of the app
     index === 0
       ? // activeCard = last card in the array
         (activeCard = data.cards[length])
@@ -85,6 +85,8 @@ function App() {
   };
 
   const runNextButton = () => {
+    setRightBtnScale(!rightBtnScale);
+
     //  get the zero-th index of the activeCard object - which should always be the index of the current card
     const index = data.activeCard.id;
     // set the activeCard variable to the card in data with the index of the activeCard
@@ -108,16 +110,15 @@ function App() {
     <ThemeProvider theme={colorPalette}>
       <ThemeProvider theme={Fonts}>
         <SiteWrapper>
-          <WidgetWrapper className="widget-slider">
-            <Card
-              key={id}
-              title={title}
-              svg={svg}
-              data={data.activeCard.data}
-              growthRate={growthRate}
-            />
-          </WidgetWrapper>
           <PrevButton handlePrevButton={runPrevButton} />
+          <Card
+            isScaled={rightBtnScale}
+            key={id}
+            title={title}
+            svg={svg}
+            data={data.activeCard.data}
+            growthRate={growthRate}
+          />
           <NextButton handleNextButton={runNextButton} />
         </SiteWrapper>
       </ThemeProvider>

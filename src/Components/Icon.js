@@ -12,6 +12,10 @@ const IconBackground = styled.div`
   transform: translate(-50%, -50%);
   width: 5rem;
   height: 5rem;
+
+  &:hover {
+    background: linear-gradient(45deg, ${props => props.theme.$AuraLightOrange},${props => props.theme.$AuraRaspberry});
+  }
 `;
 
 const SVG = styled.svg`

@@ -15,15 +15,25 @@ const Base = styled.div`
   border-radius: 5px;
   background-color: ${props => props.theme.$White};
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  transition: all .5s ease;
+
+  &:hover {
+   transform: translate(0, -1rem);
+   box-shadow: 0px 18px 42px rgba(0, 0, 0, 0.35);
+;
+  }
+
+}
+${"" /* ${({ scaled }) => scaled &&` transform: translateX(-20px)`} */}
+
+
 `;
 
-const Card = ({ title, svg, data, growthRate }) => {
+const Card = ({ title, svg, data, growthRate, isScaled }) => {
   return (
-    <Base>
+    <Base scaled={isScaled}>
       <Action />
-      <Helper />
+      <Helper title={title} data={data} growthRate={growthRate} />
       <Icon svg={svg} />
       <Data data={data} />
       <Title title={title} />
