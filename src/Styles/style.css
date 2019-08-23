@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
 
-/* * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0; 
-  } */
+body {
+  background-color: #F3F0E7;
+  margin: 0;
+  font-size: 1rem;
+}

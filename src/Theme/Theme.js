@@ -3,6 +3,7 @@ export const colorPalette = {
     $PrimaryVariant: "#FF9B66",
     $Black: "101010",
     $BFCBlue: "#00A6FF",
+    $BFCOffWhite: "#F3F0E7",
     $White: "#fff",
     $Grey: "#929292",
     $Green: "#24DA24",

@@ -55,8 +55,8 @@ const HelperToolTip = styled.span`
   ::after {
     content: "";
     position: absolute;
-    right: 12px;
-    top: -9px;
+    right: .75rem;
+    top: -0.625rem;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid grey;
