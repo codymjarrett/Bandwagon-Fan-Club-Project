@@ -29,14 +29,14 @@ function App() {
       <ThemeProvider theme={Fonts}>
         <SiteWrapper>
         <Slider {...settings}>
-        {data.cards.map(({ id, title, svg, data, growthRate }) => (
+        {data.cards.map(({ id, title, svg, totalData, growthRate }) => (
      
          <Card
           // isScaled={rightBtnScale}
           key={id}
           title={title}
           svg={svg}
-          data={data.data}
+          totalData={totalData}
           growthRate={growthRate}
         />
      

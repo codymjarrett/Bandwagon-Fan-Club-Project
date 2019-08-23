@@ -9,7 +9,7 @@
         className: "svg-inline--fa fa-users fa-w-20 icon"
       },
       title: "Total Fans",
-      data: "21.2k",
+      totalData: "21.2k",
       growthRate: "112.71%"
     },
     cards: [
@@ -22,7 +22,7 @@
           className: "svg-inline--fa fa-users fa-w-20 icon"
         },
         title: "Total Fans",
-        data: "21.2k",
+        totalData: "21.2k",
         growthRate: "112.71%"
       },
       {
@@ -34,7 +34,7 @@
           className: "svg-inline--fa fa-calendar-alt fa-w-14" 
         },
         title: "Total Events",
-        data: "15",
+        totalData: "15",
         growthRate: null
       },
       {
@@ -46,7 +46,7 @@
           className: "svg-inline--fa fa-credit-card fa-w-18"
         },
         title: "Total Sales",
-        data: "38.6k",
+        totalData: "38.6k",
         growthRate: "34.47%"
       },
       {
@@ -58,7 +58,7 @@
           className: "svg-inline--fa fa-ticket-alt fa-w-18" 
         },
         title: "Active Tickets",
-        data: "958",
+        totalData: "958",
         growthRate: "23.59%"
       }
     ]

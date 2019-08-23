@@ -13,10 +13,10 @@ const DataText = styled.h1`
   transform: translateX(-50%);
 `;
 
-const Data = ({data}) => {
+const Data = ({ totalData }) => {
   return (
     <DataWrapper>
-      <DataText>{data}</DataText>
+      <DataText>{ totalData }</DataText>
     </DataWrapper>
   );
 };

@@ -42,7 +42,7 @@ const HelperToolTip = styled.span`
     padding: 5px;
     opacity:0;
     ${'' /* display: none; */}
-    transition: all 1s ease;
+    transition: all .3s ease;
 
     ${OuterIconCircle}:hover & {
       ${'' /* display:inline-block; */}
@@ -65,12 +65,12 @@ const HelperToolTip = styled.span`
 
 `
 
-const Helper = ({ title, data, growthRate }) => {
+const Helper = ({ title, totalData, growthRate }) => {
   return (
     <HelperIconWrapper>
       <OuterIconCircle>
         <HelperIcon>?</HelperIcon>
-        <HelperToolTip>It looks like your {title} are at {data}</HelperToolTip>
+        <HelperToolTip>It looks like your {title} are at {totalData}</HelperToolTip>
       </OuterIconCircle>
     </HelperIconWrapper>
   );

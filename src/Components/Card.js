@@ -33,13 +33,13 @@ ${"" /* ${({ scaled }) => scaled &&` transform: translateX(-20px)`} */}
 
 `;
 
-const Card = ({ title, svg, data, growthRate, isScaled }) => {
+const Card = ({ title, svg, totalData, growthRate, isScaled }) => {
   return (
     <Base scaled={isScaled}>
       <Action />
-      <Helper title={title} data={data} growthRate={growthRate} />
+      <Helper title={title} totalData={totalData} growthRate={growthRate} />
       <Icon svg={svg} />
-      <Data data={data} />
+      <Data totalData={totalData} />
       <Title title={title} />
       <Growth growthRate={growthRate} />
     </Base>

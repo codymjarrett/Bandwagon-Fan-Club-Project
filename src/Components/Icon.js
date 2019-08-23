@@ -12,6 +12,7 @@ const IconBackground = styled.div`
   transform: translate(-50%, -50%);
   width: 5rem;
   height: 5rem;
+  cursor: pointer; 
 
   &:hover {
     background: linear-gradient(45deg, ${props => props.theme.$AuraLightOrange},${props => props.theme.$AuraRaspberry});
@@ -24,7 +25,14 @@ const SVG = styled.svg`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: ${props => props.theme.$Primary};
+  fill: ${props => props.theme.$Primary};
+
+
+  ${IconBackground}:hover & {
+    fill: ${props => props.theme.$White};
+  }
+
+
 `;
 
 const Icon = ({ svg }) => {
