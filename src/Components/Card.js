@@ -21,13 +21,13 @@ const Base = styled.div`
 
 
 
-  &:hover {
-   transform: translate(0, -1rem);
-   box-shadow: 0px 18px 42px rgba(0, 0, 0, 0.35);
-;
-  }
+//   &:hover {
+//    transform: translate(0, -1rem);
+//    box-shadow: 0px 18px 42px rgba(0, 0, 0, 0.35);
+// ;
+//   }
 
-}
+// }
 ${"" /* ${({ scaled }) => scaled &&` transform: translateX(-20px)`} */}
 
 

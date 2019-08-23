@@ -8,13 +8,23 @@ body {
 
 
 /* overwrite custom button styles  */
+.slick-slider {
+  display: flex;
+  align-items: center; 
+}
+
+.slick-prev, .slick-next {
+  padding: 3rem;
+  display: block;
+}
+
 .slick-arrow
 {
     width: 5rem;
     height: 5rem;
     border-radius: 100%;
     background-color: #00a6ff;
-    position: absolute;
+    position: relative;
     border: none;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
