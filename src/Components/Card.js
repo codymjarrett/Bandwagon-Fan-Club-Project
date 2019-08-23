@@ -16,6 +16,10 @@ const Base = styled.div`
   background-color: ${props => props.theme.$White};
   position: relative;
   transition: all .5s ease;
+  margin: 4rem 50%;
+  transform: translateX(-50%);
+
+
 
   &:hover {
    transform: translate(0, -1rem);

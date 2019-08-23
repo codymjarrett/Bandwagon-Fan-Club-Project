@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
+import Slider from  "react-slick";
+
+
 
 import Card from "./Components/Card";
+
 import NextButton from "./Components/NextButton";
 import PrevButton from "./Components/PrevButton";
 
@@ -10,11 +14,16 @@ import { colorPalette, Fonts } from "./Theme/Theme";
 const SiteWrapper = styled.div`
   width: 960px;
   margin: 4rem auto;
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  // position: relative;
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
 `;
+
+
+
+
+
 
 function App() {
   const [rightBtnScale, setRightBtnScale] = useState(false);
@@ -105,12 +114,16 @@ function App() {
   };
 
   const { id, title, svg, growthRate } = data.activeCard;
+  const settings = {
+    dots: true,
+   
+  };
 
   return (
     <ThemeProvider theme={colorPalette}>
       <ThemeProvider theme={Fonts}>
         <SiteWrapper>
-          <PrevButton handlePrevButton={runPrevButton} />
+          {/* <PrevButton handlePrevButton={runPrevButton} />
           <Card
             isScaled={rightBtnScale}
             key={id}
@@ -119,7 +132,23 @@ function App() {
             data={data.activeCard.data}
             growthRate={growthRate}
           />
-          <NextButton handleNextButton={runNextButton} />
+          <NextButton handleNextButton={runNextButton} /> */}
+        <Slider {...settings}>
+        {data.cards.map(({ id, title, svg, data, growthRate }) => (
+     
+         <Card
+          isScaled={rightBtnScale}
+          key={id}
+          title={title}
+          svg={svg}
+          data={data.data}
+          growthRate={growthRate}
+        />
+     
+        ))}
+
+        </Slider>
+        
         </SiteWrapper>
       </ThemeProvider>
     </ThemeProvider>
