@@ -29,18 +29,18 @@ const SVG = styled.svg`
 
 const Icon = ({ svg }) => {
   return (
-    <IconBackground className="icon__container">
+    <IconBackground>
       <SVG
         aria-hidden="true"
         focusable="false"
-        data-prefix="fas"
-        data-icon="users"
-        className="svg-inline--fa fa-users fa-w-20 icon"
+        data-prefix={svg.dataPrefix}
+        data-icon={svg.dataIcon}
+        className={svg.className}
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 640 512"
       >
-        <path d={svg} />
+        <path d={svg.path} />
       </SVG>
     </IconBackground>
   );
