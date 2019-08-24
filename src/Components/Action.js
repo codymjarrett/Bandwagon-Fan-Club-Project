@@ -15,7 +15,7 @@ const ActionButton = styled.button`
   height: 5rem;
   border-radius: 100%;
   border: none;
-  background-color: ${props => props.theme.$BFCBlue};
+  background-color: ${props => props.theme.$AuraNavy};
   box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
   cursor: pointer;
 

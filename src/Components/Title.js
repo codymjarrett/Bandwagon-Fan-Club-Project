@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const TitleWrapper = styled.div`
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 5rem;
   font-size: 1.2rem;
 
 `;
@@ -11,7 +11,7 @@ const TitleWrapper = styled.div`
 const TitleText = styled.h2`
   font-family: ${props => props.theme.$SourceSansPro};
   font-weight: 600;
-  color: ${props => props.theme.$Grey};
+  color: ${props => props.theme.$BFCGrey};
 `;
 const VisuallyHidden = styled.span`
   position: absolute;

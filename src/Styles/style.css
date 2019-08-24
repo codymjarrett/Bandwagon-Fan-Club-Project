@@ -29,7 +29,7 @@ body{
     width: 5rem;
     height: 5rem;
     border-radius: 100%;
-    background-color: #00a6ff;
+    background-color: #122679;
     position: relative;
     border: none;
     box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
@@ -40,14 +40,14 @@ body{
 
 
 .slick-arrow:hover {
-  background: linear-gradient(to right, #22BBE0, #048506);
+  background: linear-gradient(to right,#122679, #9A118B);
   /*   need to figure out what's going on here */
   /* transform: translate(); */
 
 }
 
 .slick-arrow:focus {
-  background-color: #00a6ff;
+  background-color: #122679;
 
 }
 

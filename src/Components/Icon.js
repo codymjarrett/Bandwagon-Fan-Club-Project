@@ -4,7 +4,7 @@ import styled from "styled-components";
 const IconContainer = styled.div``;
 
 const IconBackground = styled.div`
-  background: ${props => props.theme.$PrimaryVariant};
+  background: ${props => props.theme.$BFCTertiaryOrange};
   border-radius: 100%;
   width: 5rem;
   height: 5rem;
@@ -18,14 +18,15 @@ const IconBackground = styled.div`
     background: linear-gradient(
       45deg,
       ${props => props.theme.$AuraLightOrange},
-      ${props => props.theme.$AuraRaspberry}
+      ${props => props.theme.$AuraRaspberry},
+      ${props => props.theme.$AuraYellow}
     );
   }
 `;
 
 const SVG = styled.svg`
   width: 3rem;
-  fill: ${props => props.theme.$Primary};
+  fill: ${props => props.theme.$BFCPrimaryOrange};
 
   ${IconBackground}:hover & {
     fill: ${props => props.theme.$White};
