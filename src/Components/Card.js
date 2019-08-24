@@ -9,10 +9,10 @@ import Title from "./Title";
 import Growth from "./Growth";
 
 const Base = styled.div`
-  width: 351px;
-  height: 425px;
-  box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
+  width: 21.9375rem;
+  height: 26.5625rem;
+  box-shadow: 0px 0.1875rem 1.125rem rgba(0, 0, 0, 0.25);
+  border-radius: .3125rem;
   background-color: ${props => props.theme.$White};
   position: relative;
   transition: all .5s ease;
@@ -23,7 +23,7 @@ const Base = styled.div`
 
 //   &:hover {
 //    transform: translate(0, -1rem);
-//    box-shadow: 0px 18px 42px rgba(0, 0, 0, 0.35);
+//    box-shadow: 0px 1.125rem 2.625rem rgba(0, 0, 0, 0.35);
 // ;
 //   }
 
@@ -35,7 +35,7 @@ ${"" /* ${({ scaled }) => scaled &&` transform: translateX(-20px)`} */}
 
 const Card = ({ title, svg, totalData, growthRate, isScaled }) => {
   return (
-    <Base scaled={isScaled}>
+    <Base scaled={isScaled} className="card">
       <Action />
       <Helper title={title} totalData={totalData} growthRate={growthRate} />
       <Icon svg={svg} />

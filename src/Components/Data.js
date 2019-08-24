@@ -2,20 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 const DataWrapper = styled.div`
-  position: relative;
+  text-align: center;
+  padding: 2rem 0 0;
 `;
 
 const DataText = styled.h1`
   font-size: 4rem;
   font-family: ${props => props.theme.$Futura};
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  
 `;
 
 const Data = ({ totalData }) => {
   return (
-    <DataWrapper>
+    <DataWrapper className="total-data__container">
       <DataText>{ totalData }</DataText>
     </DataWrapper>
   );

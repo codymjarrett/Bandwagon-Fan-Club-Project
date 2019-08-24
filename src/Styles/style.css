@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
 
-body {
+body{
   background-color: #F3F0E7;
   margin: 0;
+  padding: 0;
   font-size: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -26,7 +32,7 @@ body {
     background-color: #00a6ff;
     position: relative;
     border: none;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
     cursor: pointer;
     transition: all .3s ease; 
 }

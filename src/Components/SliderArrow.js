@@ -10,7 +10,7 @@ const styles = {
     backgroundColor: "#00a6ff",
     // position: "relative",
     border: "none",
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    boxShadow: "0px .25rem .25rem rgba(0, 0, 0, 0.25)",
     cursor: "pointer",
     
     // display: "block",
@@ -22,7 +22,7 @@ const Button = styled.button`
   background-color: #00a6ff;
   position: relative;
   border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: block;
 

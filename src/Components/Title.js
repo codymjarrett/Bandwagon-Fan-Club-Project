@@ -2,17 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const TitleWrapper = styled.div`
-  display: inline-block;
-  position: relative;
-  top: 8rem;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+
 `;
 
 const TitleText = styled.h2`
   font-family: ${props => props.theme.$SourceSansPro};
   font-weight: 600;
-  font-size: 1rem;
   color: ${props => props.theme.$Grey};
 `;
 const VisuallyHidden = styled.span`
@@ -27,7 +25,7 @@ const VisuallyHidden = styled.span`
 `;
 const Title = ({ title }) => {
   return (
-    <TitleWrapper>
+    <TitleWrapper className="title__container">
       <TitleText>{title}</TitleText>
       <VisuallyHidden>{`Information about ${title}`}</VisuallyHidden>
     </TitleWrapper>

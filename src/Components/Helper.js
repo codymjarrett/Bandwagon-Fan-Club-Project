@@ -1,47 +1,44 @@
 import React from "react";
 import styled from "styled-components";
 
-const HelperIconWrapper = styled.div`
-  position: relative;
+const HelperIconContainer = styled.div`
   cursor: pointer;
+  padding: 1rem;
+
 `;
+
 const OuterIconCircle = styled.div`
   position: relative;
-  width: 26px;
-  height: 26px;
-  border: 2px solid #929292;
+  width: 1.625rem;
+  height: 1.625rem;
+  border: .125rem solid ${props => props.theme.$Grey};
   border-radius: 100%;
-  left: 1rem;
-  top: 1rem;
-  display: inline-block;
 `;
 
 const HelperIcon = styled.span`
   position: absolute;
   font-family: Source Sans Pro;
   font-weight: 600;
-  font-size: 24px;
-  color: #929292;
-  left: 30%;
+  font-size: 1.5rem;
+  color: ${props => props.theme.$Grey};
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   
 `;
 
 const HelperToolTip = styled.span`
     position: absolute;
-    ${'' /* display: inline-block; */}
-    font-size: 11px;
+    font-size: .6875rem;
     width: 9rem;
-    bottom: -49px;
-    left: -118px;
+    bottom: -3.0625rem;
+    left: -7.375rem;
     background: grey;
     color: white;
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: .625rem;
+    padding: .3125rem;
     opacity:0;
-    ${'' /* display: none; */}
     transition: all .3s ease;
 
     ${OuterIconCircle}:hover & {
@@ -57,9 +54,9 @@ const HelperToolTip = styled.span`
     position: absolute;
     right: .75rem;
     top: -0.625rem;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid grey;
+    border-left: .625rem solid transparent;
+    border-right: .625rem solid transparent;
+    border-top: .625rem solid grey;
     transform: rotate(180deg)
   }
 
@@ -67,12 +64,12 @@ const HelperToolTip = styled.span`
 
 const Helper = ({ title, totalData, growthRate }) => {
   return (
-    <HelperIconWrapper>
+    <HelperIconContainer className="helper-container">
       <OuterIconCircle>
         <HelperIcon>?</HelperIcon>
         <HelperToolTip>It looks like your {title} are at {totalData}</HelperToolTip>
       </OuterIconCircle>
-    </HelperIconWrapper>
+    </HelperIconContainer>
   );
 };
 

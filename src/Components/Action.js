@@ -2,21 +2,21 @@ import React from "react";
 import styled from "styled-components";
 
 const ActionButtonWrapper = styled.div`
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: -1.875rem;;
 
 `;
 
 const ActionButton = styled.button`
-  position: absolute;
-  right: 0px;
+  position: relative;
   transform: translateX(50%);
-  top: -30px;
   width: 5rem;
   height: 5rem;
   border-radius: 100%;
   border: none;
   background-color: ${props => props.theme.$BFCBlue};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
   cursor: pointer;
 
 
@@ -24,9 +24,9 @@ const ActionButton = styled.button`
     content: "";
     position: absolute;
     width: 2rem;
-    border: 2px solid #fff;
+    border: .125rem solid #fff;
     ${'' /* come back to this - try maybe flex */}
-    left: 22px;
+    left: 1.375rem;
     top: 50%;
     transform: rotate(90deg);
   }
@@ -35,7 +35,7 @@ const ActionButton = styled.button`
     content: "";
     position: absolute;
     width: 2rem;
-    border: 2px solid #fff;
+    border: .125rem solid ${props => props.theme.$White};
     left: 50%;
     top: 50%;
     transform: translateX(-50%);
@@ -44,7 +44,7 @@ const ActionButton = styled.button`
 
 const Action = () => {
   return (
-  <ActionButtonWrapper>
+  <ActionButtonWrapper className="action-button__container">
       <ActionButton></ActionButton>
   </ActionButtonWrapper>
     )

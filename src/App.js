@@ -10,7 +10,7 @@ import Card from "./Components/Card";
 import { colorPalette, Fonts } from "./Theme/Theme";
 
 const SiteWrapper = styled.div`
-  width: 960px;
+  width: 60rem;
   margin: 4rem auto;
 `;
 

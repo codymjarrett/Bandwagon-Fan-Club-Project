@@ -2,28 +2,28 @@ import React from "react";
 import styled from "styled-components";
 
 const GrowthWrapper = styled.div`
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: ${props => props.theme.$Futura};
   font-weight: bold;
   font-size: 1.1rem;
+  margin: 1rem;
+  
 `;
 const GrowthElementsWrapper = styled.div`
   display: flex;
+  justify-content: center;
 `;
+
 const GrowthIcon = styled.span`
   display: block;
   position: relative;
   width: 2rem;
-  transform: translateY(-25%);
+  align-self: flex-start; 
 
   ::before {
     content: "";
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid ${props => props.theme.$Green};
-    border-right: 10px solid transparent;
+    border-left: .625rem solid transparent;
+    border-bottom: .625rem solid ${props => props.theme.$Green};
+    border-right: .625rem solid transparent;
     position: absolute;
     top: 50%;
     left: 0;
@@ -36,7 +36,7 @@ const GrowthText = styled.span`
 
 const Growth = ({ growthRate }) => {
   return (
-    <GrowthWrapper>
+    <GrowthWrapper className="growth-rate__container">
       <GrowthElementsWrapper>
         {growthRate && <GrowthIcon />}
         <GrowthText>{growthRate}</GrowthText>
