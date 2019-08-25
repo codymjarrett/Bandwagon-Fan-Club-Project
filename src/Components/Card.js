@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
 
 import Action from "./Action";
 import Helper from "./Helper";
@@ -45,5 +47,14 @@ const Card = ({ title, svg, totalData, growthRate, isScaled }) => {
     </Base>
   );
 };
+
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  svg: PropTypes.object.isRequired,
+  totalData:PropTypes.string.isRequired,
+  growthRate: PropTypes.object,
+}
+
 
 export default Card;

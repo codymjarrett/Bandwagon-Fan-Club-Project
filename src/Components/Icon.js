@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const IconContainer = styled.div``;
 
@@ -26,6 +27,7 @@ const IconBackground = styled.div`
 
 const SVG = styled.svg`
   width: 3rem;
+  height: 3rem;
   fill: ${props => props.theme.$BFCPrimaryOrange};
 
   ${IconBackground}:hover & {
@@ -42,7 +44,6 @@ const Icon = ({ svg }) => {
           focusable="false"
           data-prefix={svg.dataPrefix}
           data-icon={svg.dataIcon}
-          className={svg.className}
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox={svg.viewBox}
@@ -53,5 +54,9 @@ const Icon = ({ svg }) => {
     </IconContainer>
   );
 };
+
+Icon.propTypes = {
+  svg: PropTypes.object.isRequired,
+}
 
 export default Icon;

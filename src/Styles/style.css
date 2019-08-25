@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
 
-body{
+body {
   background-color: #F3F0E7;
   margin: 0;
   padding: 0;
@@ -16,31 +16,31 @@ body{
 /* overwrite custom button styles  */
 .slick-slider {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
   padding: 3rem;
   display: block;
 }
 
-.slick-arrow
-{
-    width: 5rem;
-    height: 5rem;
-    border-radius: 100%;
-    background-color: #122679;
-    position: relative;
-    border: none;
-    box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: all .3s ease; 
+.slick-arrow {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  background-color: #122679;
+  position: relative;
+  border: none;
+  box-shadow: 0px .25rem .25rem rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all .3s ease;
 }
 
 
 
 .slick-arrow:hover {
-  background: linear-gradient(to right,#122679, #9A118B);
+  background: linear-gradient(to right, #122679, #9A118B);
   /*   need to figure out what's going on here */
   /* transform: translate(); */
 
@@ -51,17 +51,16 @@ body{
 
 }
 
-
-
 .slick-prev:after {
-   content: "";
-    border-left: 1.5rem solid transparent;
-    border-right: 1.5rem solid transparent;
-    border-bottom: 2.5rem solid white;
-    position: absolute;
-    left: 50%;
-    transform: translate(-60%, -50%) rotate(-90deg);
+  content: "";
+  border-left: 1.5rem solid transparent;
+  border-right: 1.5rem solid transparent;
+  border-bottom: 2.5rem solid white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-60%, -50%) rotate(-90deg);
 }
+
 .slick-next:after {
   content: "";
   border-left: 1.5rem solid transparent;
@@ -79,4 +78,10 @@ body{
 
 .slick-next:before {
   content: none;
+}
+
+
+.svg__edit-icon {
+  /* somewhat centers the icon */
+  margin: 0 1.5rem .5rem;
 }

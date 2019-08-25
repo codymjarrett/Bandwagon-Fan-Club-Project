@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Slider from  "react-slick";
+import ReactModal from 'react-modal';
 
 import { seeds } from "./Data/seeds"
 
@@ -13,6 +14,10 @@ const SiteWrapper = styled.div`
   width: 60rem;
   margin: 4rem auto;
 `;
+
+const getPortalNode = () => {
+  return document.getElementById('portal');
+}
 
 
 function App() {
@@ -38,13 +43,14 @@ function App() {
           svg={svg}
           totalData={totalData}
           growthRate={growthRate}
-        />
+        />  
      
         ))}
 
         </Slider>
-        
+        <ReactModal isOpen={true} parentSelector={getPortalNode}/>
         </SiteWrapper>
+        
       </ThemeProvider>
     </ThemeProvider>
   );

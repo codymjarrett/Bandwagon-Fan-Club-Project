@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import GrowthTriangle from "./GrowthTriangle";
 
+//  com back to this 
 const red = `${props => props.theme.$AuraRed}`;
 const green = `${props => props.theme.$Green}`; 
 
@@ -33,5 +35,9 @@ const Growth = ({ growthRate }) => {
     </GrowthWrapper>
   );
 };
+
+Growth.propTypes = {
+  growthRate: PropTypes.object,
+}
 
 export default Growth;

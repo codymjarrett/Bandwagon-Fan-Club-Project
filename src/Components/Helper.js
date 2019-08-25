@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const HelperIconContainer = styled.div`
   cursor: pointer;
@@ -49,7 +50,7 @@ const HelperToolTip = styled.span`
     top: -0.625rem;
     border-left: 0.625rem solid transparent;
     border-right: 0.625rem solid transparent;
-    border-top: 0.625rem solid grey;
+    border-top: 0.625rem solid ${props => props.theme.$BFCGrey};
     transform: rotate(180deg);
   }
 `;
@@ -69,15 +70,18 @@ const Helper = ({ title, growthRate }) => {
       {growthRate && (
         <OuterIconCircle>
           <HelperIcon>?</HelperIcon>
-          {growthRate && (
             <HelperToolTip>
               This week your {title} have {downOrUp} !
             </HelperToolTip>
-          )}
         </OuterIconCircle>
       )}
     </HelperIconContainer>
   );
 };
+
+Helper.propTypes = {
+  title: PropTypes.string.isRequired,
+  growthRate: PropTypes.object,
+}
 
 export default Helper;
