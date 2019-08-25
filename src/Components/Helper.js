@@ -71,7 +71,7 @@ const Helper = ({ title, growthRate }) => {
         <OuterIconCircle>
           <HelperIcon>?</HelperIcon>
             <HelperToolTip>
-              This week your {title} have {downOrUp} !
+              Your {title} have {downOrUp} by {growthRate.growthData} this month!
             </HelperToolTip>
         </OuterIconCircle>
       )}

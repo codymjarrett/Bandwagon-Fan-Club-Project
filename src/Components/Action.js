@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const ActionButtonWrapper = styled.button`
@@ -17,15 +17,27 @@ const ActionButtonWrapper = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: linear-gradient(to right, ${props => props.theme.$AuraNavy}, ${props => props.theme.$AuraPurple});
+    background: linear-gradient(
+      to right,
+      ${props => props.theme.$AuraNavy},
+      ${props => props.theme.$AuraPurple}
+    );
   }
 `;
 
-
-const Action = () => {
+const Action = ({ id, handleActionButton, setIsModalOpen }) => {
   return (
-    <ActionButtonWrapper className="action-button__container">
-      <FontAwesomeIcon icon={faEdit} size="3x" color="white" className="svg__edit-icon"/>
+    <ActionButtonWrapper
+      className="action-button__container"
+      data-id={id}
+      onClick={()=> { handleActionButton(id); setIsModalOpen(true)}}
+    >
+      <FontAwesomeIcon
+        icon={faEdit}
+        size="3x"
+        color="white"
+        className="svg__edit-icon"
+      />
     </ActionButtonWrapper>
   );
 };
