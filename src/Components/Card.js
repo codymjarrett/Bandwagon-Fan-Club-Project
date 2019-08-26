@@ -38,7 +38,7 @@ ${"" /* ${({ scaled }) => scaled &&` transform: translateX(-20px)`} */}
 const Card = ({ id, title, svg, totalData, growthRate, isScaled, handleActionButton, setIsModalOpen }) => {
   return (
     <Base scaled={isScaled} className="card">
-      <Action id={id}  setIsModalOpen={setIsModalOpen} handleActionButton={handleActionButton}/>
+      <Action id={id}  growthRate={growthRate} setIsModalOpen={setIsModalOpen} handleActionButton={handleActionButton}/>
       <Helper title={title} totalData={totalData} growthRate={growthRate} />
       <Icon svg={svg} />
       <Data totalData={totalData} />

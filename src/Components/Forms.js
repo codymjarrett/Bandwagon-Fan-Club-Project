@@ -1,59 +1,59 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-
-
-const Forms = ({ setIsModalOpen, thisTotalData, setdataToEdit, dataToEdit  }) => {
-  
-
+const Forms = ({ setIsModalOpen, thisTotalData, id, data, setData }) => {
+  const formData = {};
   const [prevMonthData, setPrevMonthData] = useState(null);
   const [currentMonthData, setCurrentMonthData] = useState(null);
   const [isBothFormsEmpty, setIsBothFormsEmpty] = useState(false);
 
-  
-
   const handleFormSubmit = e => {
     e.preventDefault();
-    takeOldDataAndReplaceWithNewData();
+    const formattedData = takeOldDataAndReplaceWithNewData();
     const [gain, gainOrLoss] = calculateGrowthThisMonth();
-    const percentageFormat = `${gainOrLoss}%`
-    console.log(gain, gainOrLoss, percentageFormat);
-    console.log(thisTotalData)
-    if(gain){
-      setdataToEdit(
-        prevState => (prevState[0].growthRate = percentageFormat)
-      );
-  
+    const percentageFormat = `${gainOrLoss}%`;
+// refactor
+    const currentCard = data.cards[id];
+    currentCard.totalData = formattedData;
+    currentCard.growthRate.growthGain = gain;
+    currentCard.growthRate.growthData = percentageFormat;
+
+    setData(prevState => {
+      let newState = prevState;
+      // maybe set to variable 
+       let cards = newState.cards.splice(id, 1, currentCard);
+       //copy 
+      // let cards = newState.cards;
+      return { ...prevState, cards }
+    });
+    if (gain) {
+      
+      
+    }
+    // setIsModalOpen(false)
   };
-  // console.log(dataToEdit)
-}
 
   const handleOnChange = e => {
     const { value, name } = e.target;
-    name === "previousMonth"
-      ? setPrevMonthData(value)
-      : setCurrentMonthData(value);
+    formData[name] = value;
   };
 
   const takeOldDataAndReplaceWithNewData = () => {
     const truncatedDataFormat = transformNewInputIntoSpecialFormat(
-      currentMonthData
+      formData.currentMonth
     );
     if (truncatedDataFormat) {
-      console.log(truncatedDataFormat)
-      setdataToEdit(
-        prevState => (prevState[0].totalData = truncatedDataFormat)
-      );
-    
+      console.log(truncatedDataFormat);
+      
       setIsModalOpen(false);
-
+      return(truncatedDataFormat);
     } else {
       setIsBothFormsEmpty(true);
     }
   };
 
   const transformNewInputIntoSpecialFormat = string => {
-    // function that's the current money value and formats it to UI 
+    // function that's the current money value and formats it to UI
     if (string) {
       const array = string.split("");
       const numArray = [];
@@ -97,8 +97,8 @@ const Forms = ({ setIsModalOpen, thisTotalData, setdataToEdit, dataToEdit  }) =>
   };
 
   const calculateGrowthThisMonth = () => {
-    const prevMonth = prevMonthData;
-    const currentMonth = currentMonthData;
+    const prevMonth = formData.previousMonth;
+    const currentMonth = formData.currentMonth;
     let gain;
 
     const gainOrLoss = ((currentMonth - prevMonth) / prevMonth) * 100;
@@ -136,7 +136,7 @@ const Forms = ({ setIsModalOpen, thisTotalData, setdataToEdit, dataToEdit  }) =>
           handleFormSubmit(e);
         }}
       />
-      {isBothFormsEmpty && <div>Both Forms are empty, add something </div>}
+      {/* {isBothFormsEmpty && <div>Both Forms are empty, add something </div>} */}
     </form>
   );
 };

@@ -25,7 +25,8 @@ const ActionButtonWrapper = styled.button`
   }
 `;
 
-const Action = ({ id, handleActionButton, setIsModalOpen }) => {
+const Action = ({ id, handleActionButton, setIsModalOpen, growthRate }) => {
+  
   return (
     <ActionButtonWrapper
       className="action-button__container"
