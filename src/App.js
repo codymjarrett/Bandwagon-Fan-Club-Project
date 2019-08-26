@@ -65,7 +65,7 @@ function App() {
 
         </Slider>
         <ReactModal isOpen={isModalOpen} parentSelector={getPortalNode}>
-        <Forms setIsModalOpen={setIsModalOpen}/> 
+        <Forms setIsModalOpen={setIsModalOpen} dataToEdit={dataToEdit} setdataToEdit={setdataToEdit} /> 
         </ReactModal>
         </SiteWrapper>
         
