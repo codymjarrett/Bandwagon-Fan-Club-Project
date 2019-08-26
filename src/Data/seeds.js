@@ -42,7 +42,7 @@ export const seeds = {
       growthRate: {
         growthGain: false,
         growthData: "34.47%"
-      }
+      },
     },
     {
       id: 4,

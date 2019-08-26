@@ -1,27 +1,32 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Forms = ({ setIsModalOpen, dataToEdit, setdataToEdit }) => {
+
+
+const Forms = ({ setIsModalOpen, thisTotalData, setdataToEdit, dataToEdit  }) => {
+  
 
   const [prevMonthData, setPrevMonthData] = useState(null);
   const [currentMonthData, setCurrentMonthData] = useState(null);
   const [isBothFormsEmpty, setIsBothFormsEmpty] = useState(false);
 
+  
+
   const handleFormSubmit = e => {
     e.preventDefault();
     takeOldDataAndReplaceWithNewData();
     const [gain, gainOrLoss] = calculateGrowthThisMonth();
+    const percentageFormat = `${gainOrLoss}%`
+    console.log(gain, gainOrLoss, percentageFormat);
+    console.log(thisTotalData)
     if(gain){
-        setdataToEdit(
-            prevState => prevState[0].growthRate.growthGain = true
-          );
-    //     //   setdataToEdit(
-    //     //     prevState => (prevState[0].growthRate.growthData = `${gainOrLoss}%`)
-    //     //   );
-          
-    }
-    console.log(dataToEdit[0].growthRate.growthGain)
+      setdataToEdit(
+        prevState => (prevState[0].growthRate = percentageFormat)
+      );
+  
   };
+  // console.log(dataToEdit)
+}
 
   const handleOnChange = e => {
     const { value, name } = e.target;
@@ -35,16 +40,20 @@ const Forms = ({ setIsModalOpen, dataToEdit, setdataToEdit }) => {
       currentMonthData
     );
     if (truncatedDataFormat) {
+      console.log(truncatedDataFormat)
       setdataToEdit(
         prevState => (prevState[0].totalData = truncatedDataFormat)
       );
+    
       setIsModalOpen(false);
+
     } else {
       setIsBothFormsEmpty(true);
     }
   };
 
   const transformNewInputIntoSpecialFormat = string => {
+    // function that's the current money value and formats it to UI 
     if (string) {
       const array = string.split("");
       const numArray = [];
