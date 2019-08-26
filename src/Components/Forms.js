@@ -2,16 +2,25 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Forms = ({ setIsModalOpen, dataToEdit, setdataToEdit }) => {
-  const [prevMonthData, setPrevMonthData] = useState();
-  const [currentMonthData, setCurrentMonthData] = useState();
+
+  const [prevMonthData, setPrevMonthData] = useState(null);
+  const [currentMonthData, setCurrentMonthData] = useState(null);
   const [isBothFormsEmpty, setIsBothFormsEmpty] = useState(false);
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    if (prevMonthData || currentMonthData === "") {
-      return;
-    }
     takeOldDataAndReplaceWithNewData();
+    const [gain, gainOrLoss] = calculateGrowthThisMonth();
+    if(gain){
+        setdataToEdit(
+            prevState => prevState[0].growthRate.growthGain = true
+          );
+    //     //   setdataToEdit(
+    //     //     prevState => (prevState[0].growthRate.growthData = `${gainOrLoss}%`)
+    //     //   );
+          
+    }
+    console.log(dataToEdit[0].growthRate.growthGain)
   };
 
   const handleOnChange = e => {
@@ -25,11 +34,13 @@ const Forms = ({ setIsModalOpen, dataToEdit, setdataToEdit }) => {
     const truncatedDataFormat = transformNewInputIntoSpecialFormat(
       currentMonthData
     );
-    if(truncatedDataFormat){
-        setdataToEdit(prevState => (prevState[0].totalData = truncatedDataFormat));
-        setIsModalOpen(false);
+    if (truncatedDataFormat) {
+      setdataToEdit(
+        prevState => (prevState[0].totalData = truncatedDataFormat)
+      );
+      setIsModalOpen(false);
     } else {
-        setIsBothFormsEmpty(true);
+      setIsBothFormsEmpty(true);
     }
   };
 
@@ -73,10 +84,22 @@ const Forms = ({ setIsModalOpen, dataToEdit, setdataToEdit }) => {
       }
 
       return formatted;
-    } 
+    }
   };
 
-//   const calculateGrowthThisMonth = () => {};
+  const calculateGrowthThisMonth = () => {
+    const prevMonth = prevMonthData;
+    const currentMonth = currentMonthData;
+    let gain;
+
+    const gainOrLoss = ((currentMonth - prevMonth) / prevMonth) * 100;
+    if (gainOrLoss > 0) {
+      gain = true;
+    } else if (gainOrLoss < 0) {
+      gain = false;
+    }
+    return [gain, gainOrLoss];
+  };
 
   return (
     <form>
@@ -104,9 +127,7 @@ const Forms = ({ setIsModalOpen, dataToEdit, setdataToEdit }) => {
           handleFormSubmit(e);
         }}
       />
-      {isBothFormsEmpty && (
-          <div>Both Forms are empty, add something </div>
-      )}
+      {isBothFormsEmpty && <div>Both Forms are empty, add something </div>}
     </form>
   );
 };
