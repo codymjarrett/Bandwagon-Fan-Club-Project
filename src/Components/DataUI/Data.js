@@ -1,17 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const DataWrapper = styled.div`
-  text-align: center;
-  padding: 2rem 0 0;
-`;
-
-const DataText = styled.h1`
-  font-size: 4rem;
-  font-family: ${props => props.theme.$Futura};
-  color: ${props => props.theme.$BFCPrimaryGrey};
-`;
+import { DataWrapper , DataText } from './Data.styled';
 
 const Data = ({ totalData }) => {
   return (

@@ -5,10 +5,10 @@ import ReactModal from "react-modal";
 
 import { seeds } from "./Data/seeds";
 
-import Card from "./Components/Card";
-import Forms from "./Components/Forms";
+import Card from "./Components/Card/Card";
+import Forms from "./Components/Forms/Forms"
 
-// import ModalStyles from "./Styles/ModalStyles.css"
+import { styles } from "./Theme/ModalStyles";
 import { colorPalette, Fonts } from "./Theme/Theme";
 
 const SiteWrapper = styled.div`
@@ -62,7 +62,7 @@ function App() {
             ))}
           </Slider>
 
-          <ReactModal style={{ overlay: {  backgroundColor: 'rgba(34, 31, 31, 0.75)'}, content: {width: "500px", height: "250px", top: "50%", left: "50%", transform: "translate(-50%,-50%)", boxShadow: "0px 0.1875rem 1.125rem rgba(0, 0, 0, 0.25)"}}} isOpen={isModalOpen} parentSelector={getPortalNode}>
+          <ReactModal style={styles} isOpen={isModalOpen} parentSelector={getPortalNode}>
             <Forms
               setIsModalOpen={setIsModalOpen}
               id={testID}

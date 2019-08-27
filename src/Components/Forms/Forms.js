@@ -1,36 +1,44 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 
-const Forms = ({ setIsModalOpen, thisTotalData, id, data, setData }) => {
+import {
+  Header,
+  HeaderWrapper,
+  Exit,
+  Form,
+  InputWrapper,
+  FormInput,
+  FormSubmitButton,
+  FormLabel
+} from "./Forms.style";
+
+const Forms = ({ setIsModalOpen, id, data, setData }) => {
   const formData = {};
-  const [prevMonthData, setPrevMonthData] = useState(null);
-  const [currentMonthData, setCurrentMonthData] = useState(null);
   const [isBothFormsEmpty, setIsBothFormsEmpty] = useState(false);
 
   const handleFormSubmit = e => {
     e.preventDefault();
     const formattedData = takeOldDataAndReplaceWithNewData();
     const [gain, gainOrLoss] = calculateGrowthThisMonth();
-    const percentageFormat = `${gainOrLoss}%`;
-// refactor
-    const currentCard = data.cards[id];
-    currentCard.totalData = formattedData;
-    currentCard.growthRate.growthGain = gain;
-    currentCard.growthRate.growthData = percentageFormat;
+    const percentageFormat = `${gainOrLoss.toFixed()}%`;
 
-    setData(prevState => {
-      let newState = prevState;
-      // maybe set to variable 
-       let cards = newState.cards.splice(id, 1, currentCard);
-       //copy 
-      // let cards = newState.cards;
-      return { ...prevState, cards }
-    });
-    if (gain) {
-      
-      
+    // refactor
+
+    if (gain && formattedData) {
+      const currentCard = data.cards[id];
+      currentCard.totalData = formattedData;
+      currentCard.growthRate.growthGain = gain;
+      currentCard.growthRate.growthData = percentageFormat;
+
+      setData(prevState => {
+        let newState = prevState;
+        // let cards = newState.cards.splice(id, 1, currentCard);
+        //copy of state
+        return { ...prevState, newState };
+      });
+    } else {
+      setIsBothFormsEmpty(true);
+      return;
     }
-    // setIsModalOpen(false)
   };
 
   const handleOnChange = e => {
@@ -43,12 +51,8 @@ const Forms = ({ setIsModalOpen, thisTotalData, id, data, setData }) => {
       formData.currentMonth
     );
     if (truncatedDataFormat) {
-      console.log(truncatedDataFormat);
-      
       setIsModalOpen(false);
-      return(truncatedDataFormat);
-    } else {
-      setIsBothFormsEmpty(true);
+      return truncatedDataFormat;
     }
   };
 
@@ -63,10 +67,8 @@ const Forms = ({ setIsModalOpen, thisTotalData, id, data, setData }) => {
       if (numArray.length === 7) {
         if (numArray[1] < 1) {
           formatted = `${numArray[0]}mil`;
-          console.log("hit length of 7 if");
         } else {
           formatted = `${numArray[0]}.${numArray[1]}mil`;
-          console.log("hit length of 7 else");
         }
       } else if (numArray.length === 6) {
         if (numArray[3] < 1) {
@@ -111,33 +113,39 @@ const Forms = ({ setIsModalOpen, thisTotalData, id, data, setData }) => {
   };
 
   return (
-    <form>
-      <div>
-        <label>Previous Month</label>
-        <input
+    <Form>
+      <HeaderWrapper>
+        <Header>Enter new values below</Header>
+        <Exit onClick={() => setIsModalOpen(false)}>x</Exit>
+      </HeaderWrapper>
+      <InputWrapper>
+        <FormLabel>Previous Month (numbers only)</FormLabel>
+        <FormInput
           type="text"
           name="previousMonth"
           onChange={handleOnChange}
-          placeholder="numbers only, no commas"
+          required
         />
-      </div>
-      <div>
-        <label>Current Month</label>
-        <input
+      </InputWrapper>
+      <InputWrapper>
+        <FormLabel>Current Month (numbers only)</FormLabel>
+        <FormInput
           type="text"
           name="currentMonth"
           onChange={handleOnChange}
-          placeholder="numbers only, no commas"
+          required
         />
-      </div>
-      <input
-        type="submit"
-        onClick={e => {
-          handleFormSubmit(e);
-        }}
-      />
-      {/* {isBothFormsEmpty && <div>Both Forms are empty, add something </div>} */}
-    </form>
+      </InputWrapper>
+      <InputWrapper>
+        <FormSubmitButton
+          type="submit"
+          onClick={e => {
+            handleFormSubmit(e);
+          }}
+        />
+      </InputWrapper>
+      {isBothFormsEmpty && <div>One or more inputs is empty!</div>}
+    </Form>
   );
 };
 

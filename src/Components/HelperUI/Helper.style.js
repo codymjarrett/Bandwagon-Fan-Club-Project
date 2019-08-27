@@ -1,13 +1,12 @@
-import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
-const HelperIconContainer = styled.div`
+
+export const HelperIconContainer = styled.div`
   cursor: pointer;
   padding: 1rem;
 `;
 
-const OuterIconCircle = styled.div`
+export const OuterIconCircle = styled.div`
   position: relative;
   width: 1.625rem;
   height: 1.625rem;
@@ -15,7 +14,7 @@ const OuterIconCircle = styled.div`
   border-radius: 100%;
 `;
 
-const HelperIcon = styled.span`
+export const HelperIcon = styled.span`
   position: absolute;
   font-family: Source Sans Pro;
   font-weight: 600;
@@ -26,7 +25,7 @@ const HelperIcon = styled.span`
   transform: translate(-50%, -50%);
 `;
 
-const HelperToolTip = styled.span`
+export const HelperToolTip = styled.span`
   position: absolute;
   font-size: 0.6875rem;
   width: 9rem;
@@ -54,34 +53,3 @@ const HelperToolTip = styled.span`
     transform: rotate(180deg);
   }
 `;
-
-const Helper = ({ title, growthRate }) => {
-  var downOrUp;
-  if (growthRate) {
-    if (growthRate.growthGain) {
-      downOrUp = "increased";
-    } else if (!growthRate.growthGain) {
-      downOrUp = "decreased";
-    }
-  }
-
-  return (
-    <HelperIconContainer className="helper-container">
-      {growthRate && (
-        <OuterIconCircle>
-          <HelperIcon>?</HelperIcon>
-            <HelperToolTip>
-              Your {title} have {downOrUp} by {growthRate.growthData} this month!
-            </HelperToolTip>
-        </OuterIconCircle>
-      )}
-    </HelperIconContainer>
-  );
-};
-
-Helper.propTypes = {
-  title: PropTypes.string.isRequired,
-  growthRate: PropTypes.object,
-}
-
-export default Helper;
