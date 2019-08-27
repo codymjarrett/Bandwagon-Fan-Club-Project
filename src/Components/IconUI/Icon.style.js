@@ -12,6 +12,8 @@ export const IconBackground = styled.div`
   justify-content: center;
   align-items: center;
   margin: auto;
+  transition: all .3s ease; 
+
 
   &:hover {
     background: linear-gradient(

@@ -17,6 +17,8 @@ export const Exit = styled.button`
   background: transparent;
   border: none;
   font-weight: 600;
+  transition: all .3s ease; 
+
   &:hover {
     color: ${props => props.theme.$BFCPrimaryOrange};
   }
@@ -53,6 +55,7 @@ export const FormSubmitButton = styled.input`
   color: ${props => props.theme.$White};
   font-size: 1.1rem;
   cursor: pointer;
+  transition: all .3s ease; 
 
   &:hover {
     background: ${props => props.theme.$AuraNavy};

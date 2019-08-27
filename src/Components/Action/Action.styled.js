@@ -12,6 +12,8 @@ border: none;
 background-color: ${props => props.theme.$AuraNavy};
 box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 cursor: pointer;
+transition: all .3s ease; 
+
 
 &:hover {
   background: linear-gradient(
