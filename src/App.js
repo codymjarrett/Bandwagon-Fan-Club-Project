@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from "styled-components";
 import Slider from "react-slick";
 import ReactModal from "react-modal";
 
-import { seeds } from "./Data/seeds";
+import { seeds } from "./Data/seeds"
 
 import Card from "./Components/Card/Card";
 import Forms from "./Components/Forms/Forms"
@@ -27,7 +27,7 @@ const getPortalNode = () => {
 function App() {
   const [data, setData] = useState({ ...seeds });
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [testID, setTestID] = useState();
+  const [cardID, setCardID] = useState();
  
   const settings = {
     dots: true
@@ -37,9 +37,9 @@ function App() {
   },[data])
 
   const handleActionButton = id => {
-    let theID;
-    theID = id - 1;
-    setTestID(theID);
+    let caughtID;
+    caughtID = id - 1;
+    setCardID(caughtID);
     
   };
 
@@ -65,16 +65,9 @@ function App() {
           <ReactModal style={styles} isOpen={isModalOpen} parentSelector={getPortalNode}>
             <Forms
               setIsModalOpen={setIsModalOpen}
-              id={testID}
-              // setdataToEdit={setdataToEdit}
-              // dataToEdit={dataToEdit}
+              id={cardID}
               data={data}
               setData={setData}
-
-              // thisTotalData={thisTotalData}
-              // setThisTotalData={setThisTotalData}
-              // thisGrowthRate={thisGrowthRate}
-              // setThisGrowthRate={setThisGrowthRate}
             />
           </ReactModal>
         </SiteWrapper>
